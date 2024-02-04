@@ -1,0 +1,7 @@
+<cu-custom bgColor="bg-lightred">
+  <view slot="content">整个好「话」</view>
+</cu-custom>
+<view class="action">
+  <text class="text-df margin-right-sm" style="font-size: 60rpx">打钱！</text>
+</view>
+<image src="../../../images/QRcode.JPG" style="width: 1000rpx; height: 1000rpx;"></image>

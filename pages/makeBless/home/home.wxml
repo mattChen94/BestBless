@@ -1,0 +1,29 @@
+<cu-custom bgColor="bg-lightred">
+  <view slot="content">整个好「话」</view>
+</cu-custom>
+<swiper class="card-swiper round-dot" indicator-dots="true" circular="true"  duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
+  <swiper-item wx:for="{{swiperList}}" wx:key="*this" class="{{cardCur==index?'cur':''}}">
+    <view class="swiper-item">
+      <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+    </view>
+  </swiper-item>
+</swiper>
+<view class="input-container">
+  <text class="input-title bg-red">祝福对象</text>
+  <input class="input-field" placeholder="请输入祝福对象"/>
+</view>
+
+<!-- 个性化配置列表项 -->
+<view class="cu-list menu sm-border card-menu margin-top">
+  <view class="cu-item arrow">
+      <view class="content">
+        <navigator url="/pages/makeBless/customConfig/customConfig" open-type="navigate">
+          <text class="bg-red">个性化配置</text>
+        </navigator>
+      </view>
+    </view>
+</view>
+<view class="btn-container">
+  <button style="height: 110rpx;" class="cu-btn round lg bg-red">生成祝福</button>
+</view>
+<view class='cu-tabbar-height'></view>

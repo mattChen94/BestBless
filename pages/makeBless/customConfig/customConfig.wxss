@@ -1,0 +1,63 @@
+/* pages/customConfig/customConfig.wxss */
+/* 页面容器样式 */
+.container {
+  padding: 20px;
+}
+
+/* 每一部分的间距 */
+.section {
+  margin-bottom: 20px;
+}
+
+/* 下拉选择器样式 */
+.picker {
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+.picker-text {
+  color: #000;
+}
+
+/* 平铺选项的样式 */
+.options {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.option {
+  padding: 10px 15px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.option-selected {
+  background-color: #007aff;
+  color: #fff;
+}
+
+/* 输入框和文本域样式 */
+.input, .textarea {
+  width: 100%;
+  height: 50px; /* 增加输入框的高度 */
+  padding: 12px; /* 增加内边距使得文字不会紧贴边缘，同时也会影响输入框的总体高度 */
+  font-size: 18px; /* 增大字体大小，使输入内容更加明显 */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.input-count {
+  display: block;
+  text-align: right;
+  margin-top: 5px;
+}
+
+.title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}

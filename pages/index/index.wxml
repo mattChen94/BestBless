@@ -1,0 +1,18 @@
+<makeBless wx:if="{{PageCur=='makeBless'}}"></makeBless>
+<contactUs wx:if="{{PageCur=='contactUs'}}"></contactUs>
+<view class="cu-bar tabbar bg-white shadow foot">
+
+  <view class="action" bindtap="NavChange" data-cur="makeBless">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/makeBless{{PageCur=='makeBless'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='makeBless'?'text-red':'text-gray'}}">生成祝福</view>
+  </view>
+
+  <view class="action" bindtap="NavChange" data-cur="contactUs">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/contactUs{{PageCur=='contactUs'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='contactUs'?'text-red':'text-gray'}}">联系我们</view>
+  </view>
+</view>

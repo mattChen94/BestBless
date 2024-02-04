@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "makeBless": "/pages/makeBless/home/home",
+    "contactUs": "/pages/contactUs/home/home"
+  }
+}
