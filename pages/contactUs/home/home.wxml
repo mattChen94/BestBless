@@ -4,4 +4,3 @@
 <view class="action">
   <text class="text-df margin-right-sm" style="font-size: 60rpx">打钱！</text>
 </view>
-<image src="../../../images/QRcode.JPG" style="width: 1000rpx; height: 1000rpx;"></image>

@@ -1,25 +1,34 @@
 // index.js
+const app = getApp();
 Page({
   data: {
     cardCur: 0,
     swiperList: [{
       id: 0,
       type: 'image',
-      url: '../../../images/family.png'
+      url: 'https://bless-1324272707.cos.ap-nanjing.myqcloud.com/family.png'
     },
     {
       id: 1,
-        type: 'image',
-        url: '../../../images/business.png',
-    }, {
+      type: 'image',
+      url: 'https://bless-1324272707.cos.ap-nanjing.myqcloud.com/campus.png'
+    }, 
+    {
       id: 2,
       type: 'image',
-      url: '../../../images/campus.png'
-    }, {
+      url: 'https://bless-1324272707.cos.ap-nanjing.myqcloud.com/workplace.png'
+    },
+    {
       id: 3,
+        type: 'image',
+        url: 'https://bless-1324272707.cos.ap-nanjing.myqcloud.com/business.png',
+    },
+    {
+      id: 4,
       type: 'image',
-      url: '../../../images/workplace.png'
-    }],
+      url: 'https://bless-1324272707.cos.ap-nanjing.myqcloud.com/general.png'
+    }
+  ],
   },
   onLoad() {
     this.towerSwiper('swiperList');
@@ -35,6 +44,8 @@ Page({
       this.setData({
         cardCur: e.detail.current
       })
+      app.globalData.UserConfig.sceneId = this.data.cardCur;
+      console.log(app.globalData.UserConfig.sceneId);
     },
       // towerSwiper
   // 初始化towerSwiper

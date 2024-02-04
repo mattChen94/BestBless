@@ -4,9 +4,9 @@
 <view class="container">
   <!-- 角色选择下拉框 -->
   <view class="section">
-    <picker mode="selector" range="{{roles}}" value="{{selectedRoleIndex}}" bindchange="handleRoleChange">
+    <picker mode="selector" range="{{scene[sceneId].target}}" value="{{selectedTargetIndex}}" bindchange="handleTargetChange">
       <view class="picker">
-        选择角色: <text class="picker-text">{{roles[selectedRoleIndex]}}</text>
+        选择角色: <text class="picker-text">{{scene[sceneId].target[selectedTargetIndex]}}</text>
       </view>
     </picker>
   </view>
@@ -15,8 +15,8 @@
   <view class="section">
     <text class="title">祝福形式：</text>
     <view class="options">
-      <block wx:for="{{blessingStyles}}" wx:key="index">
-        <view class="option {{selectedBlessingStyleIndex == index ? 'option-selected' : ''}}" bindtap="handleBlessingStyleChange" data-index="{{index}}">
+      <block wx:for="{{blessingForms}}" wx:key="index">
+        <view class="option {{selectedBlessingFormIndex == index ? 'option-selected' : ''}}" bindtap="handleBlessingFormChange" data-index="{{index}}">
           {{item}}
         </view>
       </block>
@@ -27,8 +27,8 @@
   <view class="section">
     <text class="title">祝福风格：</text>
     <view class="options">
-      <block wx:for="{{blessingTypes}}" wx:key="index">
-        <view class="option {{selectedBlessingTypeIndex == index ? 'option-selected' : ''}}" bindtap="handleBlessingTypeChange" data-index="{{index}}">
+      <block wx:for="{{scene[sceneId].style}}" wx:key="index">
+        <view class="option {{selectedBlessingStyleIndex == index ? 'option-selected' : ''}}" bindtap="handleBlessingStyleChange" data-index="{{index}}">
           {{item}}
         </view>
       </block>
@@ -36,7 +36,7 @@
   </view>
 
   <!-- 藏头语输入 -->
-  <view class="section" wx:if="{{selectedBlessingStyleIndex == 0}}">
+  <view class="section" wx:if="{{selectedBlessingFormIndex == 0}}">
     <input class="input" type="text" placeholder="请输入藏头语" value="{{acrosticPoemInput}}" maxlength="20" bindinput="handleAcrosticPoemInput" />
     <text class="input-count">{{acrosticPoemInput.length}}/20</text>
   </view>
