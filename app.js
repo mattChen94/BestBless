@@ -25,6 +25,7 @@ App({
       sceneId: 0,
       targetName: '',
       target: '',
+      targetIndex: 0,
       form: '',
       formIndex: 0,
       style: '',

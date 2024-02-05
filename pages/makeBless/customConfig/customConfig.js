@@ -43,13 +43,17 @@ Page({
     this.setData({
       sceneId: app.globalData.UserConfig.sceneId,
       selectedBlessingFormIndex: app.globalData.UserConfig.formInex,
-      selectedBlessingStyleIndex: app.globalData.UserConfig.StyleIndex
+      selectedBlessingStyleIndex: app.globalData.UserConfig.StyleIndex,
+      selectedTargetIndex:app.globalData.UserConfig.targetIndex,
     });
   },
   handleTargetChange: function(e) {
     this.setData({
       selectedTargetIndex: e.detail.value
     });
+    app.globalData.UserConfig.targetIndex = this.data.selectedTargetIndex;
+    app.globalData.UserConfig.target = this.data.scene[this.data.sceneId].target[this.data.selectedTargetIndex];
+    console.log('选择祝福形式：' + this.data.scene[this.data.sceneId].target[this.data.selectedTargetIndex]);
   },
 
   handleBlessingFormChange: function(e) {
@@ -77,6 +81,7 @@ Page({
     this.setData({
       acrosticPoemInput: e.detail.value
     });
+    app.globalData.UserConfig.acrosticPoetryContent = this.data.acrosticPoemInput;
   },
 
   handlePersonalizedRequestInput: function(e) {

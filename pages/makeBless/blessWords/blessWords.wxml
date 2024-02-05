@@ -5,7 +5,7 @@
 <!-- 页面容器 -->
 <view class="container">
   <!-- 大方形的可编辑文本框 -->
-  <textarea class="textarea" value="{{textareaValue}}" placeholder="在这里输入文本..." bindinput="onInput"></textarea>
+  <textarea class="textarea" value="{{textareaValue}}" placeholder="在这里输入文本..." bindinput="onInput" auto-height ></textarea>
   
   <!-- 操作按钮 -->
   <view class="button-group">
