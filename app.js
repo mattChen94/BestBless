@@ -20,12 +20,16 @@ App({
     })
   },
   globalData: {
+    makingBlessBtnClicked: false,
     UserConfig: {
       sceneId: 0,
-      taget: '',
+      targetName: '',
+      target: '',
       form: '',
+      formIndex: 0,
       style: '',
-      isAcrosticPoetry: false,
+      StyleIndex: 0,
+      acrosticPoetryContent: '',
       customNeed: ''
     }
   }

@@ -38,10 +38,12 @@ Page({
     acrosticPoemInput: "",
     personalizedRequest: ""
   },
-  onLoad: function(options) {
+  onLoad: function() {
     // 从全局变量获取sceneId并更新页面的sceneId
     this.setData({
       sceneId: app.globalData.UserConfig.sceneId,
+      selectedBlessingFormIndex: app.globalData.UserConfig.formInex,
+      selectedBlessingStyleIndex: app.globalData.UserConfig.StyleIndex
     });
   },
   handleTargetChange: function(e) {
@@ -55,6 +57,10 @@ Page({
     this.setData({
       selectedBlessingFormIndex: index
     });
+    // 更新全局数据
+    app.globalData.UserConfig.formInex = index;
+    app.globalData.UserConfig.form = this.data.blessingForms[index];
+    console.log('选择祝福形式：' + this.data.blessingForms[index]);
   },
 
   handleBlessingStyleChange: function(e) {
@@ -62,6 +68,9 @@ Page({
     this.setData({
       selectedBlessingStyleIndex: index
     });
+    app.globalData.UserConfig.StyleIndex = index;
+    app.globalData.UserConfig.style = this.data.scene[this.data.sceneId].style[index];
+    console.log('选择祝福风格：' + this.data.scene[this.data.sceneId].style[index]);
   },
 
   handleAcrosticPoemInput: function(e) {

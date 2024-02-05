@@ -3,7 +3,9 @@
     "pages/index/index",
     "pages/makeBless/home/home",
     "pages/contactUs/home/home",
-    "pages/makeBless/customConfig/customConfig"
+    "pages/makeBless/customConfig/customConfig",
+    "pages/makeBless/blessWords/blessWords",
+    "pages/makeBless/greetingCard/greetingCard"
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",

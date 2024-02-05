@@ -1,0 +1,18 @@
+/* pages/makeBless/blessWords/blessWords.wxss */
+/* 页面容器样式 */
+.container {
+  padding: 20px;
+}
+
+/* 文本框样式 */
+.textarea {
+  width: 100%;
+  min-height: 150px; /* 调整这个高度以适应你的设计需要 */
+  border: 1px solid #ccc; /* 边框颜色和样式 */
+  margin-bottom: 20px; /* 与下方按钮的间距 */
+}
+
+/* 按钮组样式 */
+.button-group button {
+  margin-right: 10px; /* 按钮之间的间距 */
+}

@@ -1,0 +1,16 @@
+<!--pages/makeBless/blessWords/blessWords.wxml-->
+<cu-custom bgColor="bg-lightred" isBack="{{true}}">
+  <view slot="content">祝福文字</view>
+</cu-custom>
+<!-- 页面容器 -->
+<view class="container">
+  <!-- 大方形的可编辑文本框 -->
+  <textarea class="textarea" value="{{textareaValue}}" placeholder="在这里输入文本..." bindinput="onInput"></textarea>
+  
+  <!-- 操作按钮 -->
+  <view class="button-group">
+    <button bindtap="onRefresh">刷新</button>
+    <button bindtap="onCopy">复制文本</button>
+    <button bindtap="onGenerateCard">生成贺卡</button>
+  </view>
+</view>

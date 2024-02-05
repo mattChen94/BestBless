@@ -39,6 +39,7 @@ Page({
       })
     }
   },
+
     // cardSwiper
     cardSwiper(e) {
       this.setData({
@@ -47,7 +48,17 @@ Page({
       app.globalData.UserConfig.sceneId = this.data.cardCur;
       console.log(app.globalData.UserConfig.sceneId);
     },
-      // towerSwiper
+
+    buttonClick: function() {
+      app.globalData.makingBlessBtnClicked = true;
+      console.log("点击生产祝福")
+      // 可能还需要跳转到page2
+      wx.navigateTo({
+        url: '/pages/makeBless/blessWords/blessWords'
+      });
+    }, 
+
+  // towerSwiper
   // 初始化towerSwiper
   towerSwiper(name) {
     let list = this.data[name];

@@ -24,6 +24,6 @@
     </view>
 </view>
 <view class="btn-container">
-  <button style="height: 110rpx;" class="cu-btn round lg bg-red">生成祝福</button>
+  <button style="height: 110rpx;" class="cu-btn round lg bg-red" bind:tap="buttonClick">生成祝福</button>
 </view>
 <view class='cu-tabbar-height'></view>
