@@ -40,12 +40,6 @@
     <input class="input" type="text" placeholder="请输入藏头语" value="{{acrosticPoemInput}}" maxlength="20" bindinput="handleAcrosticPoemInput" />
     <text class="input-count">{{acrosticPoemInput.length}}/20</text>
   </view>
-
-  <!-- 个性化要求输入 -->
-  <view class="section">
-    <textarea class="textarea" placeholder="请输入个性化要求" value="{{personalizedRequest}}" maxlength="50" bindinput="handlePersonalizedRequestInput"></textarea>
-    <text class="input-count">{{personalizedRequest.length}}/50</text>
-  </view>
 </view>
 
 <view class='cu-tabbar-height'></view>

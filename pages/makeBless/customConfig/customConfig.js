@@ -31,21 +31,23 @@ Page({
         style:['友好','感激'],
       }
     ],
-    selectedTargetIndex: 0,
+    selectedTargetIndex: null,
     blessingForms: ["藏头诗风格", "对联风格", "普通风格"],
-    selectedBlessingFormIndex: 0,
-    selectedBlessingStyleIndex: 0,
+    selectedBlessingFormIndex: null,
+    selectedBlessingStyleIndex: null,
     acrosticPoemInput: "",
-    personalizedRequest: ""
   },
   onLoad: function() {
     // 从全局变量获取sceneId并更新页面的sceneId
     this.setData({
       sceneId: app.globalData.UserConfig.sceneId,
-      selectedBlessingFormIndex: app.globalData.UserConfig.formInex,
+      selectedBlessingFormIndex: app.globalData.UserConfig.formIndex,
       selectedBlessingStyleIndex: app.globalData.UserConfig.StyleIndex,
       selectedTargetIndex:app.globalData.UserConfig.targetIndex,
+      acrosticPoemInput: app.globalData.UserConfig.acrosticPoetryContent,
     });
+    app.globalData.UserConfig.target = this.data.scene[this.data.sceneId].target[this.data.selectedTargetIndex];
+    app.globalData.UserConfig.style = this.data.scene[this.data.sceneId].style[this.data.selectedBlessingStyleIndex];
   },
   handleTargetChange: function(e) {
     this.setData({
@@ -62,9 +64,9 @@ Page({
       selectedBlessingFormIndex: index
     });
     // 更新全局数据
-    app.globalData.UserConfig.formInex = index;
+    app.globalData.UserConfig.formIndex = index;
     app.globalData.UserConfig.form = this.data.blessingForms[index];
-    console.log('选择祝福形式：' + this.data.blessingForms[index]);
+    console.log('选择祝福形式：' + this.data.blessingForms[index] + index);
   },
 
   handleBlessingStyleChange: function(e) {
@@ -83,10 +85,4 @@ Page({
     });
     app.globalData.UserConfig.acrosticPoetryContent = this.data.acrosticPoemInput;
   },
-
-  handlePersonalizedRequestInput: function(e) {
-    this.setData({
-      personalizedRequest: e.detail.value
-    });
-  }
 });

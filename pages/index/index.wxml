@@ -1,7 +1,7 @@
 <makeBless wx:if="{{PageCur=='makeBless'}}"></makeBless>
 <contactUs wx:if="{{PageCur=='contactUs'}}"></contactUs>
-<view class="cu-bar tabbar bg-white shadow foot">
 
+<view class="cu-bar tabbar bg-white shadow foot">
   <view class="action" bindtap="NavChange" data-cur="makeBless">
     <view class='cuIcon-cu-image'>
       <image src="/images/tabbar/makeBless{{PageCur=='makeBless'?'_cur':''}}.png"></image>

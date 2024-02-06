@@ -9,8 +9,8 @@
   </swiper-item>
 </swiper>
 <view class="input-container">
-  <text class="input-title bg-red">祝福对象</text>
-  <input class="input-field" placeholder="请输入祝福对象"/>
+  <text class="input-title text-red">祝福对象</text>
+  <input class="input-field" placeholder="请输入祝福对象" bindinput="handleInput"/>
 </view>
 
 <!-- 个性化配置列表项 -->
@@ -18,7 +18,7 @@
   <view class="cu-item arrow">
       <view class="content">
         <navigator url="/pages/makeBless/customConfig/customConfig" open-type="navigate">
-          <text class="bg-red">个性化配置</text>
+          <text class="text-red">个性化配置</text>
         </navigator>
       </view>
     </view>

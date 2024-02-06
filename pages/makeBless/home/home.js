@@ -3,6 +3,7 @@ const app = getApp();
 Page({
   data: {
     cardCur: 0,
+    targetName: '',
     swiperList: [{
       id: 0,
       type: 'image',
@@ -35,7 +36,9 @@ Page({
     // 初始化towerSwiper 传已有的数组名即可
     if (wx.getUserProfile) {
       this.setData({
-        canIUseGetUserProfile: true
+        canIUseGetUserProfile: true,
+        cardCur: app.globalData.UserConfig.sceneId,
+        targetName: app.globalData.UserConfig.targetName,
       })
     }
   },
@@ -49,10 +52,18 @@ Page({
       console.log(app.globalData.UserConfig.sceneId);
     },
 
+    handleInput: function(e) {
+      // 更新祝福对象的数据
+      this.setData({
+        targetName: e.detail.value
+      });
+      app.globalData.UserConfig.targetName = this.data.targetName,
+      console.log(app.globalData.UserConfig.targetName);
+    },
+
     buttonClick: function() {
       app.globalData.makingBlessBtnClicked = true;
       console.log("点击生产祝福")
-      // 可能还需要跳转到page2
       wx.navigateTo({
         url: '/pages/makeBless/blessWords/blessWords'
       });

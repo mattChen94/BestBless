@@ -3452,6 +3452,10 @@ scroll-view.cu-steps .cu-item {
 	color: var(--white);
 }
 
+.text-red {
+	color: var(--red);
+}
+
 
 .bg-orange {
 	background-color: var(--orange);

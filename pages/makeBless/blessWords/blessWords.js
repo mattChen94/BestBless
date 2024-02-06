@@ -1,12 +1,9 @@
 // pages/makeBless/blessWords/blessWords.js
 const app = getApp();
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    textareaValue:''
+    textareaValue:'',
+    PageCur:'makeBless'
   },
 
   /**
@@ -25,33 +22,40 @@ Page({
   // 提交表单
   submitForm: function() {
     var that = this; // 获取当前page的实例
-    var form = app.globalData.UserConfig.formIndex;
-    if (form == 0) {
-      form = 'CTS'
-    }
-    else if (form == 1) {
-      form = 'DL'
-    }
-    else if (form == 2) {
-      form = 'BLESS'
-    }
+    console.log('formIndex', app.globalData.UserConfig.formIndex);
+  
+    switch(app.globalData.UserConfig.formIndex) {
+      case 0:
+        app.globalData.UserConfig.form = 'CTS';
+          break;
+      case 1:
+        app.globalData.UserConfig.form = 'DL';
+          break;
+      case 2:
+        app.globalData.UserConfig.form = 'BLESS';
+          break;
+      default:
+          break;
+        }
     console.log('submitForm');
+    var data = {
+      user_id: "1234",
+      target: app.globalData.UserConfig.targetName,
+      role: app.globalData.UserConfig.target,
+      style: app.globalData.UserConfig.style,
+      bless_type: app.globalData.UserConfig.form,
+      cty: app.globalData.UserConfig.acrosticPoetryContent,
+      extra_info: {},
+      model: "glm-3-turbo"
+    };
+    console.log('Content of request:', data);
     wx.request({
       url: 'https://blessllm.bigmodel.cn/bless', // 请求地址
       method: 'POST', 
       header: {
         'Content-Type': 'application/json' 
       },
-      data: {
-        user_id: "1234",
-        target: app.globalData.UserConfig.targetName,
-        role: app.globalData.UserConfig.target,
-        style: app.globalData.UserConfig.style,
-        bless_type: form,
-        cty: app.globalData.UserConfig.acrosticPoetryContent,
-        extra_info: {},
-        model: "glm-3-turbo"
-      }, // 请求的数据
+      data: data, // 请求的数据
       success(res) {
         console.log('Content of res:', res);
         if ('content' in res.data.data) {
@@ -73,22 +77,68 @@ Page({
       }
     });
   },
+
+    // const requestTask = wx.request({
+    //   url: 'https://blessllm.bigmodel.cn/bless',
+    //   responseType: "arraybuffer",
+    //   method: 'POST',
+    //   enableChunked: true,
+    //   stream: true,
+    //   header: {
+    //     'content-type': 'application/json'
+    //   },
+    //   data: {
+    //     user_id: "1234",
+    //     target: app.globalData.UserConfig.targetName,
+    //     role: app.globalData.UserConfig.target,
+    //     style: app.globalData.UserConfig.style,
+    //     bless_type: form,
+    //     cty: app.globalData.UserConfig.acrosticPoetryContent,
+    //     extra_info: {},
+    //     stream: true,
+    //     model: "glm-3-turbo"
+    //   },
+    //   success: (res) => {
+    //     this.res = "请求结果 : " + JSON.stringify(res);
+    //     console.log("request success", res);
+        
+    //   },
+    //   fail: (err) => {
+    //     console.log("request fail", err);
+    //   },
+    //   complete: () => {
+    //     this.loading = false;
+    //   }
+    // });
+    // requestTask.onChunkReceived(function (r) {
+    //   console.log("onChunkReceived", r);
+    //   let decoder = new TextDecoder('utf-8');
+    //   let str = decoder.decode(new Uint8Array(r.data));
+    //   that.setData({
+    //     textareaValue: that.data.textareaValue + str
+    //   });
+    //   console.log("data.status",r.data);
+      
+    //   console.log("onChunkReceived", str);
+    // });
+
   onInput: function(e) {
     // 更新文本框中的文本
     this.setData({
-      text: e.detail.value
+      textareaValue: e.detail.value
     });
   },
   onRefresh: function() {
     // 刷新文本框内容的逻辑
     this.setData({
-      text: '' // 清空文本框
+      textareaValue: ''
     });
+    this.submitForm();
   },
   onCopy: function() {
     // 复制文本框中的文本到剪贴板
     wx.setClipboardData({
-      data: this.data.text,
+      data: this.data.textareaValue,
       success: function() {
         wx.showToast({
           title: '文本已复制',
@@ -97,11 +147,16 @@ Page({
     });
   },
   onGenerateCard: function() {
-    // 生成贺卡的逻辑
-    // 这里你可能需要跳转到另一个页面或者使用canvas生成贺卡
-    wx.showToast({
-      title: '生成贺卡',
+    console.log("点击 生成贺卡")
+    wx.navigateTo({
+      url: '/pages/makeBless/greetingCard/greetingCard'
     });
+
+  },
+  NavChange(e) {
+    this.setData({
+      PageCur: e.currentTarget.dataset.cur
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
