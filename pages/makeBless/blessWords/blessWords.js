@@ -23,7 +23,7 @@ Page({
   submitForm: function() {
     var that = this; // 获取当前page的实例
     console.log('formIndex', app.globalData.UserConfig.formIndex);
-  
+    
     switch(app.globalData.UserConfig.formIndex) {
       case 0:
         app.globalData.UserConfig.form = 'CTS';

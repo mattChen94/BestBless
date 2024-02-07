@@ -7,27 +7,27 @@ Page({
     swiperList: [{
       id: 0,
       type: 'image',
-      url: 'https://bless-1324272707.cos.ap-nanjing.myqcloud.com/family.png'
+      url: 'https://blessllm.bigmodel.cn/images/family_low.png'
     },
     {
       id: 1,
       type: 'image',
-      url: 'https://bless-1324272707.cos.ap-nanjing.myqcloud.com/campus.png'
+      url: 'https://blessllm.bigmodel.cn/images/campus_low.png'
     }, 
     {
       id: 2,
       type: 'image',
-      url: 'https://bless-1324272707.cos.ap-nanjing.myqcloud.com/workplace.png'
+      url: 'https://blessllm.bigmodel.cn/images/workplace_low.png'
     },
     {
       id: 3,
         type: 'image',
-        url: 'https://bless-1324272707.cos.ap-nanjing.myqcloud.com/business.png',
+        url: 'https://blessllm.bigmodel.cn/images/business_low.png',
     },
     {
       id: 4,
       type: 'image',
-      url: 'https://bless-1324272707.cos.ap-nanjing.myqcloud.com/general.png'
+      url: 'https://blessllm.bigmodel.cn/images/general_low.png'
     }
   ],
   },

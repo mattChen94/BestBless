@@ -1,16 +1,69 @@
 /* pages/makeBless/blessWords/blessWords.wxss */
 /* 页面容器样式 */
 .container {
+  position: relative;
   padding: 20px;
 }
 
 /* 文本框样式 */
-.textarea {
-  width: 100%;
-  min-height: 150px; /* 调整这个高度以适应你的设计需要 */
-  border: 1px solid #ccc; /* 边框颜色和样式 */
-  margin-bottom: 20px; /* 与下方按钮的间距 */
+.textarea-container {
+  position: relative;
+  width: 100%; /* 或指定宽度 */
+  min-height: 350px;
+  background-color: #FFFFFF;
+  box-sizing: border-box;
+  border-radius: 18px; /* 圆角 */
+  border: 1px solid #ccc; /* 边框，如果需要 */
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1); /* 阴影 */
+  padding: 0px; /* 调整这个值来为内部的 <textarea> 提供足够的空间 */
 }
+
+.custom-textarea {
+  width: calc(100% - 80px); /* 减去左右margin */
+  min-height: 270px; /* 或其他值，根据需要调整 */
+  background-color: #FFFFFF;
+  padding: 10px; /* 文本区域内边距 */
+  font-family: Helvetica, sans-serif; /* 示例字体 */
+  font-size: 20px; /* 示例字号 */
+  box-sizing: border-box;
+  border-radius: 15px; /* 如果你想要 <textarea> 自身也有圆角 */
+  border: none; /* 或根据需要设置边框 */
+  margin: 80px 40px 10px 40px; /* 控制 <textarea> 在容器内的位置 */
+  resize: none; /* 禁止调整大小 */
+}
+
+.word-count {
+  position: absolute; /* 绝对定位 */
+  bottom: 10px; /* 位于容器的右下角 */
+  right: 10px;
+  color: #999; /* 字体颜色 */
+}
+.refresh-container {
+  display: flex;
+  justify-content: flex-end; /* 使子项对齐到容器的末端（右侧） */
+  padding: 15px 15px 0 0;  /* 根据需要添加内边距 */
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between; /* 使子项分布在容器的两端 */
+  padding: 10px; /* 根据需要调整 */
+}
+
+.custom-button {
+  background-color: #FFFFFF; /* 背景颜色 */
+  width: 120px;
+  border: none; /* 移除边框 */
+  border-radius: 49px; /* 圆角 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 阴影效果 */
+  padding: 10px 20px; /* 按钮内边距 */
+  cursor: pointer; /* 鼠标悬停时的光标形状 */
+  /* 可选: 设置文字样式 */
+  color: #C12C1F; /* 文字颜色 */
+  font-size: 18px; /* 文字大小 */
+  font-weight: bold;
+}
+
 
 /* 按钮组样式 */
 .button-group button {

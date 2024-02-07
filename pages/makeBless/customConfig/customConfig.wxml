@@ -1,44 +1,53 @@
 <cu-custom bgColor="bg-lightred" isBack="{{true}}">
   <view slot="content">个性化配置</view>
 </cu-custom>
-<view class="container">
-  <!-- 角色选择下拉框 -->
-  <view class="section">
-    <picker mode="selector" range="{{scene[sceneId].target}}" value="{{selectedTargetIndex}}" bindchange="handleTargetChange">
-      <view class="picker">
-        选择角色: <text class="picker-text">{{scene[sceneId].target[selectedTargetIndex]}}</text>
-      </view>
-    </picker>
-  </view>
+<view style="	min-height: 30rpx; height: calc(30rpx + env(safe-area-inset-bottom) / 2);">
+</view>
+<view class="cu-form-group margin-top bg-white solid-bottom">
+  <view class="action">
+    <text class="cuIcon-title text-red"></text>
+    <text style="color: #141414; font-weight: bold; font-size: 16px;">他/她是</text>
 
-  <!-- 祝福形式平铺选项 -->
-  <view class="section">
-    <text class="title">祝福形式：</text>
-    <view class="options">
-      <block wx:for="{{blessingForms}}" wx:key="index">
-        <view class="option {{selectedBlessingFormIndex == index ? 'option-selected' : ''}}" bindtap="handleBlessingFormChange" data-index="{{index}}">
-          {{item}}
-        </view>
-      </block>
+  </view>
+  <picker mode="selector" range="{{scene[sceneId].target}}" value="{{selectedTargetIndex}}" bindchange="handleTargetChange">
+    <view class="picker">
+      {{scene[sceneId].target[selectedTargetIndex]}}
     </view>
+  </picker>
+</view>
+<!-- 祝福形式平铺选项 -->
+<view class="cu-bar margin-top bg-white solid-top">
+  <view class="action">
+    <text class="cuIcon-title text-red"></text>
+    <text style="color: #141414; font-weight: bold; font-size: 16px;">祝福形式：</text>
   </view>
-
-  <!-- 祝福风格平铺选项 -->
-  <view class="section">
-    <text class="title">祝福风格：</text>
-    <view class="options">
-      <block wx:for="{{scene[sceneId].style}}" wx:key="index">
-        <view class="option {{selectedBlessingStyleIndex == index ? 'option-selected' : ''}}" bindtap="handleBlessingStyleChange" data-index="{{index}}">
-          {{item}}
-        </view>
-      </block>
-    </view>
+</view>
+<view class="grid col-3 padding-sm bg-white">
+  <view class="margin-tb-sm text-center" wx:for="{{blessingForms}}" wx:key="index">
+    <button class="cu-btn round lg {{selectedBlessingFormIndex == index ? 'bg-lightred' : ''}}" bindtap="handleBlessingFormChange" data-index="{{index}}">
+      {{blessingForms[index]}}
+    </button>
   </view>
+</view>
 
-  <!-- 藏头语输入 -->
-  <view class="section" wx:if="{{selectedBlessingFormIndex == 0}}">
-    <input class="input" type="text" placeholder="请输入藏头语" value="{{acrosticPoemInput}}" maxlength="20" bindinput="handleAcrosticPoemInput" />
-    <text class="input-count">{{acrosticPoemInput.length}}/20</text>
+<!-- 藏头语输入 -->
+<view class="cu-bar margin-top padding-lg bg-white solid-top" wx:if="{{selectedBlessingFormIndex == 0}}">
+  <input class="input" type="text" placeholder="请输入藏头语" value="{{acrosticPoemInput}}" maxlength="20" bindinput="handleAcrosticPoemInput" />
+  <text class="input-count">{{acrosticPoemInput.length}}/20</text>
+</view>
+
+<!-- 祝福风格平铺选项 -->
+<view class="cu-bar margin-top bg-white solid-top">
+  <view class="action">
+    <text class="cuIcon-title text-red"></text>
+    <text style="color: #141414; font-weight: bold; font-size: 16px;">祝福风格：</text>
+  </view>
+</view>
+<view class="grid col-4 padding-sm bg-white">
+  <view class="margin-tb-sm text-center" wx:for="{{scene[sceneId].style}}" wx:key="index">
+    <button class="cu-btn round lg {{selectedBlessingStyleIndex == index ? 'bg-lightred' : ''}}" bindtap="handleBlessingStyleChange" data-index="{{index}}">
+      {{scene[sceneId].style[index]}}
+    </button>
   </view>
 </view>
 

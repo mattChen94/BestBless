@@ -27,7 +27,7 @@ App({
       target: '',
       targetIndex: 0,
       form: '',
-      formIndex: 0,
+      formIndex: 2,
       style: '',
       StyleIndex: 0,
       acrosticPoetryContent: '',
