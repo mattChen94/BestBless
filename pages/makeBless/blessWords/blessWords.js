@@ -3,7 +3,8 @@ const app = getApp();
 Page({
   data: {
     textareaValue:'',
-    PageCur:'makeBless'
+    PageCur:'makeBless',
+    isCanDraw: false,
   },
 
   /**
@@ -12,11 +13,16 @@ Page({
   onLoad() {
     if (app.globalData.makingBlessBtnClicked) {
       // 按钮被点击，执行相应操作
-      console.log('Button in Page1 was clicked.');
+      console.log('makingBlessBtn was clicked.');
       this.submitForm();
       // 重置标志，以免再次进入页面时误触发
       app.globalData.makingBlessBtnClicked = false;
     }
+  },
+  handleClose() {
+    this.setData({
+      isCanDraw: !this.data.isCanDraw
+    })
   },
 
   // 提交表单
@@ -46,8 +52,7 @@ Page({
       style: app.globalData.UserConfig.style,
       bless_type: app.globalData.UserConfig.form,
       cty: app.globalData.UserConfig.acrosticPoetryContent,
-      extra_info: {},
-      // model: "glm-3-turbo"  # 不需要指定
+      extra_info: {}
     };
     console.log('Content of request:', data);
     wx.request({
@@ -79,50 +84,6 @@ Page({
     });
   },
 
-    // const requestTask = wx.request({
-    //   url: 'https://blessllm.bigmodel.cn/bless',
-    //   responseType: "arraybuffer",
-    //   method: 'POST',
-    //   enableChunked: true,
-    //   stream: true,
-    //   header: {
-    //     'content-type': 'application/json'
-    //   },
-    //   data: {
-    //     user_id: "1234",
-    //     target: app.globalData.UserConfig.targetName,
-    //     role: app.globalData.UserConfig.target,
-    //     style: app.globalData.UserConfig.style,
-    //     bless_type: form,
-    //     cty: app.globalData.UserConfig.acrosticPoetryContent,
-    //     extra_info: {},
-    //     stream: true,
-    //     model: "glm-3-turbo"
-    //   },
-    //   success: (res) => {
-    //     this.res = "请求结果 : " + JSON.stringify(res);
-    //     console.log("request success", res);
-        
-    //   },
-    //   fail: (err) => {
-    //     console.log("request fail", err);
-    //   },
-    //   complete: () => {
-    //     this.loading = false;
-    //   }
-    // });
-    // requestTask.onChunkReceived(function (r) {
-    //   console.log("onChunkReceived", r);
-    //   let decoder = new TextDecoder('utf-8');
-    //   let str = decoder.decode(new Uint8Array(r.data));
-    //   that.setData({
-    //     textareaValue: that.data.textareaValue + str
-    //   });
-    //   console.log("data.status",r.data);
-      
-    //   console.log("onChunkReceived", str);
-    // });
-
   onInput: function(e) {
     // 更新文本框中的文本
     this.setData({
@@ -148,19 +109,13 @@ Page({
     });
   },
   onGenerateCard: function() {
-    console.log("点击 生成贺卡")
-    wx.showToast({
-      title: '正在开发中哦！',
-    });
-    // wx.navigateTo({
-    //   url: '/pages/makeBless/greetingCard/greetingCard'
-    // });
-
-  },
-  NavChange(e) {
+    console.log("点击 生成贺卡"),
+    app.globalData.UserConfig.response = this.data.textareaValue;
+    this.data.isCanDraw = true;
     this.setData({
-      PageCur: e.currentTarget.dataset.cur
-    })
+      isCanDraw: true // 开始绘制海报图
+    });
+    console.log('isCanDraw', this.data.isCanDraw);
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

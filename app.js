@@ -31,7 +31,7 @@ App({
       style: '',
       StyleIndex: 0,
       acrosticPoetryContent: '',
-      customNeed: ''
+      response: ''
     }
   }
 })

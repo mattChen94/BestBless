@@ -5,7 +5,8 @@
     "pages/contactUs/home/home",
     "pages/makeBless/customConfig/customConfig",
     "pages/makeBless/blessWords/blessWords",
-    "pages/makeBless/greetingCard/greetingCard"
+    "pages/shareBox/index",
+    "pages/painter/painter"
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",

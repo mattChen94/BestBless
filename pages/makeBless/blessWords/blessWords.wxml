@@ -20,4 +20,5 @@
   <button class="custom-button" bindtap="onCopy">复制文本</button>
   <button class="custom-button" bindtap="onGenerateCard">生成贺卡</button>
 </view>
+<share-box isCanDraw="{{isCanDraw}}" bind:initData="handleClose" />
 <view class='cu-tabbar-height'></view>
