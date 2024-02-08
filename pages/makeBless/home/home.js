@@ -1,4 +1,3 @@
-// index.js
 const app = getApp();
 Page({
   data: {
@@ -72,6 +71,7 @@ Page({
   // towerSwiper
   // 初始化towerSwiper
   towerSwiper(name) {
+    console.log('towerSwiper')
     let list = this.data[name];
     for (let i = 0; i < list.length; i++) {
       list[i].zIndex = parseInt(list.length / 2) + 1 - Math.abs(i - parseInt(list.length / 2))

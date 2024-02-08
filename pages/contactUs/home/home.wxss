@@ -1,0 +1,6 @@
+.text-margin{
+  padding: 40px,
+}
+.action{
+  padding: 20px
+}

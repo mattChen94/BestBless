@@ -148,9 +148,12 @@ Page({
   },
   onGenerateCard: function() {
     console.log("点击 生成贺卡")
-    wx.navigateTo({
-      url: '/pages/makeBless/greetingCard/greetingCard'
+    wx.showToast({
+      title: '正在开发中哦！',
     });
+    // wx.navigateTo({
+    //   url: '/pages/makeBless/greetingCard/greetingCard'
+    // });
 
   },
   NavChange(e) {
