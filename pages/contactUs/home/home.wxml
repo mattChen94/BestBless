@@ -1,5 +1,5 @@
 <cu-custom bgColor="bg-lightred">
-  <view slot="content">整个好「话」</view>
+  <view slot="content">拜年神器</view>
 </cu-custom>
 <view class="action">
   <text class="text-margin" style="font-size: 33rpx">

@@ -9,7 +9,7 @@ Page({
   },
   onShareAppMessage() {
     return {
-      title: '整个好“话”',
+      title: '拜年神器',
       imageUrl: '',
       path: '/pages/index/index'
     }

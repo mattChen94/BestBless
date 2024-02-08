@@ -13,6 +13,6 @@
     <view class='cuIcon-cu-image'>
       <image src="/images/tabbar/contactUs{{PageCur=='contactUs'?'_cur':''}}.png"></image>
     </view>
-    <view class="{{PageCur=='contactUs'?'text-red':'text-gray'}}">联系我们</view>
+    <view class="{{PageCur=='contactUs'?'text-red':'text-gray'}}">关于我们</view>
   </view>
 </view>
