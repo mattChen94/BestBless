@@ -26,29 +26,17 @@ Component({
           views: [
             {
               type: 'text',
-              text: `在此祝您：`,
-              css: {
-                top: '755rpx',
-                left: '210rpx',
-                align: 'center',
-                fontWeight: 'bold',
-                fontSize: '44rpx',
-                color: '#3c3c3c',
-              }
-            },
-            {
-              type: 'text',
               text: getApp().globalData.UserConfig.response,
               css: {
-                top: '810rpx',
-                left: '400rpx',
+                top: '760rpx',
+                left: '380rpx',
                 align: 'center',
-                width: '520rpx',
-                height: '400rpx',
-                maxLines:'7',
-                fontWeight: 'bold',
-                fontSize: '44rpx',
-                color: '#3c3c3c',
+                width: '600rpx',
+                height: '550rpx',
+                maxLines:'9',
+                // fontWeight: 'bold',
+                fontSize: '40rpx',
+                color: '#000000',
               }
             },
             {

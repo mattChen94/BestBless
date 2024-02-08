@@ -3,3 +3,6 @@
   margin-left: calc(var(--left) * 100rpx - 150rpx);
   z-index: var(--index);
 }
+.content{
+  width: 100%;
+}

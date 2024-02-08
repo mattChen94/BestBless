@@ -8,7 +8,9 @@
   justify-content: flex-start; 
   padding: 0 20px; /* 给容器添加左右内边距 */
 }
-
+.input {
+  font-size: 17px; /* 调整为你希望的大小 */
+}
 .option {
   flex: 1 1 calc((100% - 40px) / 3); /* 修正宽度计算 */
   margin-right: 10px;

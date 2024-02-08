@@ -43,8 +43,7 @@ Page({
       default:
           break;
         }
-    console.log('submitForm');
-    console.log("userinfo", this.data.userInfo)
+    console.log('submitForm user_id',app.globalData.openid);
     var data = {
       user_id: app.globalData.openid,
       target: app.globalData.UserConfig.targetName,

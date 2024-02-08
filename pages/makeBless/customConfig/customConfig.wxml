@@ -1,5 +1,5 @@
 <cu-custom bgColor="bg-lightred" isBack="{{true}}">
-  <view slot="content">个性化配置</view>
+  <view slot="content">定制专属祝福</view>
 </cu-custom>
 <view style="	min-height: 30rpx; height: calc(30rpx + env(safe-area-inset-bottom) / 2);">
 </view>
@@ -49,6 +49,10 @@
       {{scene[sceneId].style[index]}}
     </button>
   </view>
+</view>
+
+<view class="btn-container">
+  <button style="height: 110rpx;" class="cu-btn round lg bg-red" bind:tap="buttonClick">生成祝福</button>
 </view>
 
 <view class='cu-tabbar-height'></view>

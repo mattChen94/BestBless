@@ -4,32 +4,33 @@ const app = getApp();
 Page({
   data: {
     sceneId: 0,
+    hasUserInfo: false,
     scene: [
       {
+        sceneName: '通用场景',
+        target:['我的闺蜜','我的哥们','我的损友','我的恋人','我的其他'],
+        style:['幽默','温暖','正式','浪漫'],
+      },
+      {
         sceneName: '家庭场景',
-        target:['我的父母','我的晚辈','我的配偶','我的兄弟姐妹','我的爷爷奶奶','我的亲戚'],
-        style:['慈爱','关怀','尊敬','支持','理解','友好','感激'],
+        target:['我的长辈','我的晚辈','我的平辈'],
+        style:['幽默','温暖','正式','浪漫'],
       },
       {
         sceneName: '校园场景',
-        target:['我的同学','我的导师','我的学弟学妹','我的学长学姐','我的研究伙伴'],
-        style:['恶搞','鼓励','友谊','求知','友好','感激'],
+        target:['我的同学','我的老师'],
+        style:['幽默','温暖','正式','浪漫'],
       },
       {
         sceneName: '办公场景',
-        target:['我的同事','我的上级领导','我的下属员工','我的团队成员','我的跨部门合作伙伴','我的客户'],
-        style:['团队','职业','合作','友好','感激','创新'],
+        target:['我的领导','我的下属','我的同事'],
+        style:['幽默','温暖','正式','浪漫'],
       },
       {
         sceneName: '商务场景',
-        target:['我的客户','我的供应商','我的合作伙伴','我的投资者','我的行业同行','我的顾问'],
-        style:['业务','合作','专业','友好','感激'],
+        target:['我的客户','我的伙伴','我的同行'],
+        style:['幽默','温暖','正式','浪漫'],
       },
-      {
-        sceneName: '通用场景',
-        target:['我的朋友','我的熟人','其他'],
-        style:['友好','感激'],
-      }
     ],
     selectedTargetIndex: null,
     blessingForms: ["藏头诗", "对联", "普通"],
@@ -86,5 +87,58 @@ Page({
       acrosticPoemInput: e.detail.value
     });
     app.globalData.UserConfig.acrosticPoetryContent = this.data.acrosticPoemInput;
+  },
+
+  buttonClick: function() {
+    app.globalData.makingBlessBtnClicked = true;
+    console.log("acrosticPoemInput",this.data.acrosticPoemInput.length)
+    if (this.data.selectedBlessingFormIndex === 0) {
+      if (this.data.acrosticPoemInput.length === 0) {
+        wx.showToast({
+          title: '藏头语不能为空哦',
+          icon: 'none'
+        });
+        return;
+      };
+
+    }
+    console.log("点击生产祝福")
+    console.log("hasUserInfo ",this.data.hasUserInfo)
+    if (!this.data.hasUserInfo)
+      this.getUserProfile(this)
+    else
+      wx.navigateTo({
+        url: '/pages/makeBless/blessWords/blessWords'
+      });
+  }, 
+
+    getUserProfile(that){
+    // console.info("this", this)
+    wx.login({
+      success (res) {
+        if (res.code) {
+          console.log("code", res.code)
+          wx.request({
+              url: 'https://blessllm.bigmodel.cn/wx_login/'+res.code , 
+                success:function(res){ 
+                  console.log(res.data)//res.data中有openid
+                  let openid = res.data.data["openid"]
+                  console.log("openid", openid)
+                  app.globalData.openid=openid
+                  that.setData({
+                    hasUserInfo: true
+                  });
+                  wx.navigateTo({
+                    url: '/pages/makeBless/blessWords/blessWords'
+                  });         
+              }
+          })
+  
+
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
   },
 });

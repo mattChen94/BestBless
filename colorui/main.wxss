@@ -683,7 +683,7 @@ radio.white[checked] .wx-radio-input {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  min-height: 20vh; /* 让容器高度充满整个屏幕 */
+  min-height: 13vh; /* 让容器高度充满整个屏幕 */
   padding: 40rpx; /* 根据需要设置容器的内边距 */
 }
 

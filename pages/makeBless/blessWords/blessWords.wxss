@@ -28,7 +28,7 @@
   box-sizing: border-box;
   border-radius: 15px; /* 如果你想要 <textarea> 自身也有圆角 */
   border: none; /* 或根据需要设置边框 */
-  margin: 80px 40px 10px 40px; /* 控制 <textarea> 在容器内的位置 */
+  margin: 50px 40px 10px 40px; /* 控制 <textarea> 在容器内的位置 */
   resize: none; /* 禁止调整大小 */
 }
 
@@ -40,6 +40,7 @@
 }
 .refresh-container {
   display: flex;
+  align-items: center; /* 垂直居中对齐子元素 */
   justify-content: flex-end; /* 使子项对齐到容器的末端（右侧） */
   padding: 15px 15px 0 0;  /* 根据需要添加内边距 */
 }
