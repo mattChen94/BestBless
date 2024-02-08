@@ -32,9 +32,9 @@ Page({
       }
     ],
     selectedTargetIndex: null,
-    blessingForms: ["藏头诗风格", "对联风格", "普通风格"],
-    selectedBlessingFormIndex: null,
-    selectedBlessingStyleIndex: null,
+    blessingForms: ["藏头诗", "对联", "普通"],
+    selectedBlessingFormIndex: 2,
+    selectedBlessingStyleIndex: 0,
     acrosticPoemInput: "",
   },
   onLoad: function() {
@@ -46,7 +46,9 @@ Page({
       selectedTargetIndex:app.globalData.UserConfig.targetIndex,
       acrosticPoemInput: app.globalData.UserConfig.acrosticPoetryContent,
     });
-    app.globalData.UserConfig.target = this.data.scene[this.data.sceneId].target[this.data.selectedTargetIndex];
+    // 和服务端对齐，把“我的”两个字去掉
+    app.globalData.UserConfig.target = this.data.scene[this.data.sceneId].target[this.data.selectedTargetIndex].substring(2);
+
     app.globalData.UserConfig.style = this.data.scene[this.data.sceneId].style[this.data.selectedBlessingStyleIndex];
   },
   handleTargetChange: function(e) {

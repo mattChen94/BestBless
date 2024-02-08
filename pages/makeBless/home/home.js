@@ -61,7 +61,6 @@ Page({
     // console.info("this", this)
     wx.login({
       success (res) {
-        console.info("this", that)
         if (res.code) {
           console.log("code", res.code)
           wx.request({
@@ -73,7 +72,10 @@ Page({
                   app.globalData.openid=openid
                   that.setData({
                     hasUserInfo: true
-                  })         
+                  });
+                  wx.navigateTo({
+                    url: '/pages/makeBless/blessWords/blessWords'
+                  });         
               }
           })
   

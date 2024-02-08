@@ -12,7 +12,7 @@
 <!-- 个性化配置列表项 -->
 <view class="cu-list menu sm-border card-menu margin-top">
   <view class="cu-item " >
-    <text class="text-red" style="font-weight: bold; font-size: 16px;">祝福对象</text>
+    <text class="text-red" style="font-weight: bold; font-size: 16px;">祝福对象(选填)</text>
     <input class="input-field" placeholder="请输入祝福对象" bindinput="handleInput"/>  
   </view>
   <view class="cu-item arrow" >

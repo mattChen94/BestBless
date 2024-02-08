@@ -7,7 +7,7 @@
 <view class="container">
   <!-- 大方形的可编辑文本框 -->
   <view class="textarea-container">
-    <textarea class="custom-textarea" value="{{textareaValue}}" placeholder="在这里输入文本..." bindinput="onInput" data-maxlength="100"></textarea>
+    <textarea class="custom-textarea" value="{{textareaValue}}" placeholder="努力构思中..." bindinput="onInput" data-maxlength="100"></textarea>
     <text class="word-count">{{textareaValue.length}}/100</text>
   </view>
   <view class="refresh-container">
