@@ -3,6 +3,7 @@ Page({
   data: {
     cardCur: 0,
     targetName: '',
+    hasUserInfo: false,
     swiperList: [{
       id: 0,
       type: 'image',
@@ -41,6 +42,49 @@ Page({
       })
     }
   },
+  // getUserProfile(e) {
+  //   // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认
+  //   // 开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
+  //   wx.getUserProfile({
+  //     desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+  //     success: (res) => {
+  //       console.info("user_info", res.userInfo)
+  //       this.setData({
+  //         userInfo: res.userInfo,
+  //         hasUserInfo: true
+  //       })
+  //     }
+  //   })
+  // },
+
+  getUserProfile(that){
+    // console.info("this", this)
+    wx.login({
+      success (res) {
+        console.info("this", that)
+        if (res.code) {
+          console.log("code", res.code)
+          wx.request({
+              url: 'https://blessllm.bigmodel.cn/wx_login/'+res.code , 
+                success:function(res){ 
+                  console.log(res.data)//res.data中有openid
+                  let openid = res.data.data["openid"]
+                  console.log("openid", openid)
+                  app.globalData.openid=openid
+                  that.setData({
+                    hasUserInfo: true
+                  })         
+              }
+          })
+  
+
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
+},
+
 
     // cardSwiper
     cardSwiper(e) {
@@ -63,9 +107,12 @@ Page({
     buttonClick: function() {
       app.globalData.makingBlessBtnClicked = true;
       console.log("点击生产祝福")
-      wx.navigateTo({
-        url: '/pages/makeBless/blessWords/blessWords'
-      });
+      if (!this.data.hasUserInfo)
+        this.getUserProfile(this)
+      else
+        wx.navigateTo({
+          url: '/pages/makeBless/blessWords/blessWords'
+        });
     }, 
 
   // towerSwiper

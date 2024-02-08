@@ -38,15 +38,16 @@ Page({
           break;
         }
     console.log('submitForm');
+    console.log("userinfo", this.data.userInfo)
     var data = {
-      user_id: "1234",
+      user_id: app.globalData.openid,
       target: app.globalData.UserConfig.targetName,
       role: app.globalData.UserConfig.target,
       style: app.globalData.UserConfig.style,
       bless_type: app.globalData.UserConfig.form,
       cty: app.globalData.UserConfig.acrosticPoetryContent,
       extra_info: {},
-      model: "glm-3-turbo"
+      // model: "glm-3-turbo"  # 不需要指定
     };
     console.log('Content of request:', data);
     wx.request({
