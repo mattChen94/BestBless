@@ -44,13 +44,14 @@ Page({
           break;
         }
     console.log('submitForm user_id',app.globalData.openid);
+    const userConfig = app.globalData.UserConfig;
     var data = {
       user_id: app.globalData.openid,
-      target: app.globalData.UserConfig.targetName,
-      role: app.globalData.UserConfig.target,
-      style: app.globalData.UserConfig.style,
-      bless_type: app.globalData.UserConfig.form,
-      cty: app.globalData.UserConfig.acrosticPoetryContent,
+      target: userConfig.targetName,
+      role: userConfig.scene[userConfig.sceneId].target[userConfig.targetIndex],
+      style: userConfig.style,
+      bless_type: userConfig.form,
+      cty: userConfig.acrosticPoetryContent,
       extra_info: {}
     };
     console.log('Content of request:', data);
@@ -80,13 +81,6 @@ Page({
         });
         console.error('Request failed:', err);
       }
-    });
-  },
-
-  onInput: function(e) {
-    // 更新文本框中的文本
-    this.setData({
-      textareaValue: e.detail.value
     });
   },
   onRefresh: function() {
