@@ -1,18 +1,49 @@
-<makeBless wx:if="{{PageCur=='makeBless'}}"></makeBless>
-<contactUs wx:if="{{PageCur=='contactUs'}}"></contactUs>
-
+<cu-custom bgColor="bg-lightred">
+  <view slot="content">拜年神器</view>
+</cu-custom>
+<swiper class="card-swiper round-dot" indicator-dots="true" circular="true" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
+  <swiper-item wx:for="{{swiperList}}" wx:key="*this" class="{{cardCur==index?'cur':''}}">
+    <view class="swiper-item">
+      <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+    </view>
+  </swiper-item>
+</swiper>
+<view style="display: flex; justify-content: center; align-items: center;">
+  <text class="text-gray" style="font-size: 14px;">滑动选择更多场景</text>
+</view>
+<!-- 个性化配置列表项 -->
+<view class="cu-list menu sm-border card-menu margin-top">
+  <view class="cu-item ">
+    <text class="text-red" style="font-weight: bold; font-size: 16px;">祝福对象</text>
+    <input class="input-field" placeholder="请输入祝福对象 (选填)" bindinput="handleInput" />
+  </view>
+  <view class="cu-item arrow">
+    <view class="content">
+      <navigator url="/pages/makeBless/customConfig/customConfig" open-type="navigate">
+        <text class="text-red" style="font-weight: bold; font-size: 16px;">定制专属祝福</text>
+      </navigator>
+    </view>
+  </view>
+</view>
+<view class="btn-container">
+  <button style="height: 110rpx;" class="cu-btn round lg bg-red" bind:tap="buttonClick">生 成 祝 福</button>
+</view>
+<view style="display: flex; justify-content: center; align-items: center;">
+  <text class="text-gray" style="font-size: 12px;">由 ChatGLM 提供大模型技术支持</text>
+</view>
+<view class='cu-tabbar-height'></view>
 <view class="cu-bar tabbar bg-white shadow foot">
   <view class="action" bindtap="NavChange" data-cur="makeBless">
     <view class='cuIcon-cu-image'>
-      <image src="/images/tabbar/makeBless{{PageCur=='makeBless'?'_cur':''}}.png"></image>
+      <image src="/images/tabbar/makeBless_cur.png"></image>
     </view>
     <view class="{{PageCur=='makeBless'?'text-red':'text-gray'}}">生成祝福</view>
   </view>
 
   <view class="action" bindtap="NavChange" data-cur="contactUs">
     <view class='cuIcon-cu-image'>
-      <image src="/images/tabbar/contactUs{{PageCur=='contactUs'?'_cur':''}}.png"></image>
+      <image src="/images/tabbar/contactUs.png"></image>
     </view>
-    <view class="{{PageCur=='contactUs'?'text-red':'text-gray'}}">关于我们</view>
+    <view class="text-gray">关于我们</view>
   </view>
 </view>

@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/makeBless/home/home",
     "pages/contactUs/home/home",
     "pages/makeBless/customConfig/customConfig",
     "pages/makeBless/blessWords/blessWords",
@@ -9,8 +8,8 @@
     "pages/painter/painter"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#39b54a",
-    "navigationBarTitleText": "Color UI",
+    "navigationBarBackgroundColor": "#EE7959",
+    "navigationBarTitleText": "拜 年 神 器",
     "navigationStyle": "custom",
     "navigationBarTextStyle": "white"
   },

@@ -27,6 +27,9 @@ Page({
 
   // 提交表单
   submitForm: function() {
+    wx.showLoading({
+      title: '努力构思中...'
+    });
     var that = this; // 获取当前page的实例
     console.log('formIndex', app.globalData.UserConfig.formIndex);
     
@@ -63,6 +66,7 @@ Page({
       },
       data: data, // 请求的数据
       success(res) {
+        wx.hideLoading();
         console.log('Content of res:', res);
         if ('content' in res.data.data) {
           // 设置responseMessage以在页面上显示

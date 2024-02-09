@@ -29,12 +29,11 @@ Component({
               text: getApp().globalData.UserConfig.response,
               css: {
                 top: '760rpx',
-                left: '380rpx',
+                left: '350rpx',
                 align: 'center',
-                width: '600rpx',
+                width: '530rpx',
                 height: '550rpx',
                 maxLines:'9',
-                // fontWeight: 'bold',
                 fontSize: '40rpx',
                 color: '#000000',
               }
